@@ -32,10 +32,9 @@ test('post order with correct data should receive code 201', async ({ request })
   expect(response.status()).toBe(StatusCodes.OK)
 })
 
-
 test('get order with orderId 0 should receive code 400', async ({ request }) => {
   // Build and send a GET request to the server
- const response = await request.get('https://backend.tallinn-learning.ee/test-orders/0')
+  const response = await request.get('https://backend.tallinn-learning.ee/test-orders/0')
   expect(response.status()).toBe(StatusCodes.BAD_REQUEST)
 })
 test('get order with orderId 11 should receive code 400', async ({ request }) => {
