@@ -40,7 +40,7 @@ export class LoanRiskDto {
       24,
     )
   }
-  static createNegative(age: number): LoanRiskDto {
+  static createNegativeAge(age: number): LoanRiskDto {
     return new LoanRiskDto(
       10000,
       0,
@@ -48,6 +48,36 @@ export class LoanRiskDto {
       true,
       500,
       36,
+    )
+  }
+  static createAllDataNUll(): LoanRiskDto {
+    return new LoanRiskDto(
+      0,
+      0,
+      0,
+      true,
+      0,
+      0,
+    )
+  }
+  static createNoEmploy(): LoanRiskDto {
+    return new LoanRiskDto(
+      10000,
+      0,
+      25,
+      false,
+      500,
+      36,
+    )
+  }
+  static createPositiveDecision(): LoanRiskDto {
+    return new LoanRiskDto(
+      10000,
+      0,
+      25,
+      true,
+      500,
+      15,
     )
   }
 }
