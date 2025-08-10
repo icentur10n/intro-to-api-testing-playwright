@@ -25,9 +25,12 @@ export class OrderDTO {
       'John Wick',
       '+12345667',
       'test order',
-      Math.floor(Math.random()*100),
+      Math.floor(Math.random() * 100),
       'OPEN',
-      Math.floor(Math.random()*100)
+      Math.floor(Math.random() * 100),
     )
   }
+}
+
+export class OrderDto {
 }
