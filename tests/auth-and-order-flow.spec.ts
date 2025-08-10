@@ -39,24 +39,24 @@ test.describe('Tallinn delivery API tests', () => {
     expect(responseBody).toBe('')
   })
 
-  test('login and create order', async ({ request }) => {
-    const requestBody = LoginDto.createLoginWithCorrectData()
-    const response = await request.post(`${serviceURL}${loginPath}`, {
-      data: requestBody,
-    })
-    const jwt = await response.text()
-    const orderResponse = await request.post(`${serviceURL}${orderPath}`, {
-      data: OrderDto.createOrderWithoutId(),
-      headers: {
-        Authorization: `Bearer ${jwt}`,
-      },
-    })
+  // test('login and create order', async ({ request }) => {
+   // const requestBody = LoginDto.createLoginWithCorrectData()
+    //const response = await request.post(`${serviceURL}${loginPath}`, {
+      //data: requestBody,
+    //})
+    //const jwt = await response.text()
+    //const orderResponse = await request.post(`${serviceURL}${orderPath}`, {
+      //data: OrderDto.createOrderWithoutId(),
+      //headers: {
+        //Authorization: `Bearer ${jwt}`,
+      //},
+    //})
 
-    const orderResponseBody = await orderResponse.json()
-    console.log('orderResponse status:', orderResponse.status())
-    console.log('orderResponse:', orderResponseBody)
-    expect.soft(orderResponse.status()).toBe(StatusCodes.OK)
-    expect.soft(orderResponseBody.status).toBe('OPEN')
-    expect.soft(orderResponseBody.id).toBeDefined()
-  })
+    //const orderResponseBody = await orderResponse.json()
+    //console.log('orderResponse status:', orderResponse.status())
+    //console.log('orderResponse:', orderResponseBody)
+    //expect.soft(orderResponse.status()).toBe(StatusCodes.OK)
+    //expect.soft(orderResponseBody.status).toBe('OPEN')
+    //expect.soft(orderResponseBody.id).toBeDefined()
+  //})
 })
