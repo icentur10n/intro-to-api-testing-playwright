@@ -17,3 +17,13 @@ test('Successful login and delete existing order with api client', async ({ requ
   expect.soft(response.status()).toBe(StatusCodes.OK)
   expect.soft(responseBody).toBeTruthy()
 })
+
+test('login and get existing order with api client', async ({ request }) => {
+  const apiClient = await ApiClient.getInstance(request);
+  const orderId = await apiClient.createOrderAndReturnOrderId();
+  const response = await apiClient.getOrder(orderId);
+  const responseBody = await response.json();
+  expect.soft(response.status()).toBe(StatusCodes.OK);
+  expect.soft(responseBody).toBeDefined();
+  expect.soft(responseBody.id).toBe(orderId);
+});

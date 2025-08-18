@@ -8,6 +8,7 @@ const serviceURL = 'https://backend.tallinn-learning.ee/'
 const loginPath = 'login/student'
 const orderPath = 'orders'
 const deletePath = 'orders'
+const getPath = 'orders';
 
 export class ApiClient {
   static instance: ApiClient
@@ -73,5 +74,18 @@ export class ApiClient {
     console.log(responseBody)
     return response
   }
+  async getOrder(orderId: number): Promise<APIResponse> {
+    console.log('Get order...');
+    const response = await this.request.get(`${serviceURL}${getPath}/${orderId}`, {
+      headers: {
+        Authorization: `Bearer ${this.jwt}`,
+      },
+    });
+    console.log('Get response: ', response);
 
+    const responseBody = await response.text();
+    console.log('Get order: ');
+    console.log(responseBody);
+    return response;
+  }
 }
