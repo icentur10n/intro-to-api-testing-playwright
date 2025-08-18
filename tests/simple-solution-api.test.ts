@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
 
 import { StatusCodes } from 'http-status-codes'
-import { OrderDto } from './dto/order-dto'
+import { OrderDTO } from './dto/order-dto'
 
 test('get order with correct id should receive code 200', async ({ request }) => {
   // Build and send a GET request to the server
@@ -15,7 +15,7 @@ test('get order with correct id should receive code 200', async ({ request }) =>
 
 test('post order with correct data should receive code 201', async ({ request }) => {
   // prepare request body
-  const requestBody = OrderDto.createrOrderWithRandomData()
+  const requestBody = OrderDTO.createOrderWithRandomData()
   // Send a POST request to the server
   const response = await request.post('https://backend.tallinn-learning.ee/test-orders', {
     data: requestBody,
